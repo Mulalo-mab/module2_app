@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <h1 class="text-2xl font-bold text-center mb-6">Employee Leave Requests</h1>
       
-      <button @click="toggleForm" class="mb-4 px-4 py-2 bg-blue-600 text-white rounded">{{ showForm ? 'Close' : 'Add Leave' }}</button>
+      <button @click="toggleForm" class="mb-4 px-4 py-2 bg-blue-600 text-black rounded">{{ showForm ? 'Close' : 'Add Leave' }}</button>
       
       <div v-if="showForm" class="p-4 border rounded-lg shadow-lg bg-white mb-6">
         <h2 class="text-lg font-semibold mb-2">Add Leave Request</h2>
@@ -20,7 +20,7 @@
             <label class="block">Reason:</label>
             <textarea v-model="newLeave.reason" class="border p-2 w-full" required></textarea>
           </div>
-          <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded">Submit</button>
+          <button type="submit" class="px-4 py-2 bg-green-600 text-black rounded">Submit</button>
         </form>
       </div>
       
@@ -30,7 +30,7 @@
           <p class="text-gray-700"><strong>Date:</strong> {{ leave.date }}</p>
           <p class="text-gray-700"><strong>Reason:</strong> {{ leave.reason }}</p>
           <p :class="getStatusClass(leave.status)"><strong>Status:</strong> {{ leave.status }}</p>
-          <button @click="deleteLeave(leave.employee_id)" class="mt-2 px-4 py-1 bg-red-600 text-white rounded">Delete</button>
+          <button @click="deleteLeave(leave.employee_id)" class="mt-2 px-4 py-1 bg-red-600 text-black rounded">Delete</button>
         </div>
       </div>
     </div>

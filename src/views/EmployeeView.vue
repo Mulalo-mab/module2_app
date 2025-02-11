@@ -14,25 +14,25 @@
         <form @submit.prevent="submitEmployee">
           <label>Employee ID:</label>
           <input v-model="newEmployee.employee_id" type="number" required />
-          
+          <br>
           <label>Name:</label>
           <input v-model="newEmployee.name" type="text" required />
-
+          <br>
           <label>Position:</label>
           <input v-model="newEmployee.position" type="text" required />
-
+          <br>
           <label>Department:</label>
           <input v-model="newEmployee.department" type="text" required />
-
+          <br>
           <label>Salary:</label>
           <input v-model="newEmployee.salary" type="number" required />
-
+          <br>
           <label>Employment History:</label>
           <textarea v-model="newEmployee.employment_history" required></textarea>
-
+          <br>
           <label>Contact:</label>
           <input v-model="newEmployee.contact" type="email" required />
-
+          <br>
           <div class="modal-actions">
             <button type="submit" class="btn btn-success">
               {{ isEditing ? "Update" : "Save" }}
@@ -51,7 +51,7 @@
         <p><strong>Name:</strong> {{ employeeDetails.name }}</p>
         <p><strong>Position:</strong> {{ employeeDetails.position }}</p>
         <p><strong>Department:</strong> {{ employeeDetails.department }}</p>
-        <p><strong>Salary:</strong> {{ employeeDetails.salary }}</p>
+        <p><strong>Salary:</strong> R{{ employeeDetails.salary }}</p>
         <p><strong>Employment History:</strong> {{ employeeDetails.employement_history }}</p>
         <p><strong>Contact:</strong> {{ employeeDetails.contact }}</p>
         

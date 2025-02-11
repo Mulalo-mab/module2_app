@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import axios from 'axios';
 
 export default createStore({
   state: {
@@ -24,6 +25,9 @@ export default createStore({
     },
     setAttendence(state,payload){
       state.attendence = payload
+    },
+    addAttendence(state, newAttendence) {
+      state.attendence.push(newAttendence); // Adds the new attendance record to the state
     },
 
     setLeave(state,payload){
@@ -177,10 +181,16 @@ async getSinglePayroll({ commit }, employee_id) {
     },
 
     // attendence POST
-    async postAttendence(){},
-     
-
-  
+    async postAttendence({ commit }, newAttendence) {
+      try {
+        const response = await axios.post('http://localhost:4000/attendence', newAttendence);
+        commit('addAttendence', response.data); // Add new attendance record to store
+        location.reload(); // Reload the page after successfully adding attendance
+      } catch (error) {
+        console.error("Error posting attendance:", error);
+      }
+    },
+    
     //delete attendence
     async deleteAttendence({commit},employment_id){
       await fetch('http://localhost:4000/attendence/' + employment_id, {

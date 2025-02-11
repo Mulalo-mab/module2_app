@@ -6,7 +6,7 @@
       <!-- Button to open modal -->
       <button 
         @click="showForm = true" 
-        class="mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+        class="mb-4 bg-blue-500 text-black px-4 py-2 rounded hover:bg-blue-600 transition"
       >
         + Add Employee Attendance
       </button>
@@ -16,11 +16,11 @@
         <div class="bg-white p-6 rounded-lg shadow-lg w-96">
           <h2 class="text-xl font-bold mb-4">Add Employee Attendance</h2>
 
-          <form @submit.prevent="addAttendance">
+          <form @submit.prevent="addAttendence">
             <div class="mb-3">
               <label class="block text-gray-700 font-medium">Employee ID</label>
               <input 
-                v-model="newAttendance.employment_id" 
+                v-model="newAttendence.employment_id" 
                 type="text" 
                 required
                 class="w-full p-2 border rounded"
@@ -30,7 +30,7 @@
             <div class="mb-3">
               <label class="block text-gray-700 font-medium">Date</label>
               <input 
-                v-model="newAttendance.date" 
+                v-model="newAttendence.date" 
                 type="date" 
                 required 
                 class="w-full p-2 border rounded"
@@ -40,7 +40,7 @@
             <div class="mb-3">
               <label class="block text-gray-700 font-medium">Status</label>
               <select 
-                v-model="newAttendance.status" 
+                v-model="newAttendence.status" 
                 required 
                 class="w-full p-2 border rounded"
               >
@@ -53,13 +53,13 @@
               <button 
                 type="button" 
                 @click="showForm = false"
-                class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
+                class="px-4 py-2 bg-gray-500 text-black rounded hover:bg-gray-600 transition"
               >
                 Cancel
               </button>
               <button 
                 type="submit" 
-                class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
+                class="px-4 py-2 bg-green-500 text-black rounded hover:bg-green-600 transition"
               >
                 Add Attendance
               </button>
@@ -80,7 +80,7 @@
           <p :class="getStatusClass(attendence.status)"><strong>Status:</strong> {{ attendence.status }}</p>
           <button 
             @click="deleteAttendence(attendence.employment_id)" 
-            class="mt-3 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+            class="mt-3 bg-red-500 text-black px-3 py-1 rounded hover:bg-red-600 transition"
           >
             Delete
           </button>
@@ -97,7 +97,7 @@ export default {
   data() {
     return {
       showForm: false, // Controls modal visibility
-      newAttendance: {
+      newAttendence: {
         employment_id: "",
         date: "",
         status: "Present",
@@ -105,13 +105,13 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["getAttendance", "postAttendance", "deleteAttendence"]),
+    ...mapActions(["getAttendence", "postAttendence", "deleteAttendence"]),
 
-    async addAttendance() {
-      await this.postAttendance(this.newAttendance);
-      this.newAttendance = { employment_id: "", date: "", status: "Present" }; // Reset form
+    async addAttendence() {
+      await this.postAttendence(this.newAttendence);
+      this.newAttendence = { employment_id: "", date: "", status: "Present" }; // Reset form
       this.showForm = false; // Close modal
-      this.getAttendance(); // Refresh attendance list
+      this.getAttendence(); // Refresh attendance list
     },
 
     getStatusClass(status) {
@@ -119,7 +119,7 @@ export default {
     }
   },
   mounted() {
-    this.getAttendance();
+    this.getAttendence();
   }
 };
 </script>

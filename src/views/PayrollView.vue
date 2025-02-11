@@ -15,15 +15,17 @@
         <form @submit.prevent="postPayroll">
           <label>Employee ID:</label>
           <input type="text" v-model="employee.employee_id" required />
-
+          <br>
           <label>Hours Worked:</label>
           <input type="number" v-model="employee.hours_worked" required />
-
+          <br>
           <label>Leave Deductions:</label>
           <input type="number" v-model="employee.leave_deductions" required />
-
-          <button type="submit">Submit</button><br>
-          <button type="button" @click="showPayrollModal = false">Close</button>
+          <br>
+          <button type="submit">Submit</button>
+          <br>
+          <br>
+          <button class="btn btn-danger btn-sm" type="button" @click="showPayrollModal = false">Close</button>
         </form>
       </div>
     </div>
